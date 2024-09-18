@@ -1,0 +1,1465 @@
+{
+    "last_node_id": 114,
+    "last_link_id": 179,
+    "nodes": [
+        {
+            "id": 83,
+            "type": "KSampler",
+            "pos": [
+                697.1150243107063,
+                326.77794731987854
+            ],
+            "size": {
+                "0": 310,
+                "1": 320
+            },
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 133,
+                    "label": "模型"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 134,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 135,
+                    "label": "负面条件"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 136,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        137
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                813101107442385,
+                "randomize",
+                20,
+                2.5,
+                "euler",
+                "karras",
+                1
+            ]
+        },
+        {
+            "id": 86,
+            "type": "SVD_img2vid_Conditioning",
+            "pos": [
+                357.11502431070375,
+                426.77794731987854
+            ],
+            "size": {
+                "0": 315,
+                "1": 218
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip_vision",
+                    "type": "CLIP_VISION",
+                    "link": 140,
+                    "label": "CLIP视觉"
+                },
+                {
+                    "name": "init_image",
+                    "type": "IMAGE",
+                    "link": 153,
+                    "slot_index": 1,
+                    "label": "图像"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 141,
+                    "label": "vae"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "links": [
+                        134
+                    ],
+                    "shape": 3,
+                    "slot_index": 0,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "links": [
+                        135
+                    ],
+                    "shape": 3,
+                    "slot_index": 1,
+                    "label": "负面条件"
+                },
+                {
+                    "name": "latent",
+                    "type": "LATENT",
+                    "links": [
+                        151
+                    ],
+                    "shape": 3,
+                    "slot_index": 2,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SVD_img2vid_Conditioning"
+            },
+            "widgets_values": [
+                1024,
+                576,
+                14,
+                127,
+                6,
+                0.2
+            ]
+        },
+        {
+            "id": 101,
+            "type": "Fast Bypasser (rgthree)",
+            "pos": {
+                "0": -40,
+                "1": 810,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+            },
+            "size": {
+                "0": 330,
+                "1": 78
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "遮罩模糊",
+                    "type": "*",
+                    "link": 169,
+                    "dir": 3,
+                    "label": "遮罩模糊"
+                },
+                {
+                    "name": "",
+                    "type": "*",
+                    "link": null,
+                    "dir": 3,
+                    "label": ""
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": null,
+                    "dir": 4,
+                    "label": "OPT_CONNECTION"
+                }
+            ],
+            "title": "开关：蒙版边缘羽化",
+            "properties": {
+                "toggleRestriction": "default"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 109,
+            "type": "PrimitiveNode",
+            "pos": [
+                80,
+                930
+            ],
+            "size": {
+                "0": 210,
+                "1": 82
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [
+                        164
+                    ],
+                    "widget": {
+                        "name": "grow_mask_by"
+                    }
+                }
+            ],
+            "properties": {
+                "Run widget replace on values": false
+            },
+            "widgets_values": [
+                10,
+                "fixed"
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 87,
+            "type": "VideoLinearCFGGuidance",
+            "pos": [
+                357.11502431070375,
+                326.77794731987854
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 142,
+                    "label": "模型"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        133
+                    ],
+                    "shape": 3,
+                    "slot_index": 0,
+                    "label": "模型"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VideoLinearCFGGuidance"
+            },
+            "widgets_values": [
+                1
+            ]
+        },
+        {
+            "id": 94,
+            "type": "VHS_GetLatentCount",
+            "pos": [
+                530,
+                750
+            ],
+            "size": {
+                "0": 210,
+                "1": 26
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "latents",
+                    "type": "LATENT",
+                    "link": 151,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "count",
+                    "type": "INT",
+                    "links": [
+                        145,
+                        150
+                    ],
+                    "shape": 3,
+                    "label": "计数",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_GetLatentCount"
+            },
+            "color": "#232",
+            "bgcolor": "#353",
+            "widgets_values": {}
+        },
+        {
+            "id": 90,
+            "type": "VHS_DuplicateLatents",
+            "pos": [
+                690,
+                750
+            ],
+            "size": {
+                "0": 320,
+                "1": 80
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "latents",
+                    "type": "LATENT",
+                    "link": 144,
+                    "label": "Latent"
+                },
+                {
+                    "name": "multiply_by",
+                    "type": "INT",
+                    "link": 145,
+                    "widget": {
+                        "name": "multiply_by"
+                    },
+                    "label": "系数"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        147
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                },
+                {
+                    "name": "count",
+                    "type": "INT",
+                    "links": null,
+                    "shape": 3,
+                    "label": "计数"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_DuplicateLatents"
+            },
+            "widgets_values": {
+                "multiply_by": 25
+            },
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 93,
+            "type": "VHS_DuplicateLatents",
+            "pos": [
+                820,
+                750
+            ],
+            "size": {
+                "0": 320,
+                "1": 80
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "latents",
+                    "type": "LATENT",
+                    "link": 149,
+                    "label": "Latent"
+                },
+                {
+                    "name": "multiply_by",
+                    "type": "INT",
+                    "link": 150,
+                    "widget": {
+                        "name": "multiply_by"
+                    },
+                    "label": "系数"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        146
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                },
+                {
+                    "name": "count",
+                    "type": "INT",
+                    "links": null,
+                    "shape": 3,
+                    "label": "计数"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_DuplicateLatents"
+            },
+            "widgets_values": {
+                "multiply_by": 25
+            },
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 91,
+            "type": "LatentComposite",
+            "pos": [
+                950,
+                750
+            ],
+            "size": {
+                "0": 315,
+                "1": 126
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples_to",
+                    "type": "LATENT",
+                    "link": 146,
+                    "label": "目标Latent"
+                },
+                {
+                    "name": "samples_from",
+                    "type": "LATENT",
+                    "link": 147,
+                    "label": "源Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        136
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LatentComposite"
+            },
+            "widgets_values": [
+                0,
+                0,
+                0
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 82,
+            "type": "PreviewImage",
+            "pos": [
+                -40,
+                380
+            ],
+            "size": {
+                "0": 310,
+                "1": 310
+            },
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 177,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 81,
+            "type": "PreviewImage",
+            "pos": [
+                -380,
+                380
+            ],
+            "size": {
+                "0": 310,
+                "1": 310
+            },
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 131,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 92,
+            "type": "VAEEncode",
+            "pos": [
+                410,
+                750
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "pixels",
+                    "type": "IMAGE",
+                    "link": 154,
+                    "label": "图像",
+                    "slot_index": 0
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 148,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        144
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEEncode"
+            },
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 105,
+            "type": "PrimitiveNode",
+            "pos": [
+                -145,
+                930
+            ],
+            "size": {
+                "0": 210,
+                "1": 82
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "FLOAT",
+                    "type": "FLOAT",
+                    "links": [
+                        178
+                    ],
+                    "widget": {
+                        "name": "amount"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Run widget replace on values": false
+            },
+            "widgets_values": [
+                6,
+                "fixed"
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 59,
+            "type": "MaskToImage",
+            "pos": [
+                -130,
+                770
+            ],
+            "size": {
+                "0": 290,
+                "1": 30
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 172,
+                    "label": "遮罩"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        131,
+                        174
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "MaskToImage"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 113,
+            "type": "ImageBlend",
+            "pos": [
+                10,
+                770
+            ],
+            "size": {
+                "0": 315,
+                "1": 102
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image1",
+                    "type": "IMAGE",
+                    "link": 174,
+                    "label": "图像1"
+                },
+                {
+                    "name": "image2",
+                    "type": "IMAGE",
+                    "link": 175,
+                    "label": "图像2"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        177
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageBlend"
+            },
+            "widgets_values": [
+                0.5,
+                "normal"
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 100,
+            "type": "Fast Bypasser (rgthree)",
+            "pos": {
+                "0": -380,
+                "1": 810,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+            },
+            "size": {
+                "0": 330,
+                "1": 78
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "遮罩反转",
+                    "type": "*",
+                    "link": 166,
+                    "dir": 3,
+                    "label": "遮罩反转"
+                },
+                {
+                    "name": "",
+                    "type": "*",
+                    "link": null,
+                    "dir": 3,
+                    "label": ""
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": null,
+                    "dir": 4,
+                    "label": "OPT_CONNECTION"
+                }
+            ],
+            "title": "开关：蒙版反转",
+            "properties": {
+                "toggleRestriction": "default"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 23,
+            "type": "LoadImage",
+            "pos": [
+                -750,
+                380
+            ],
+            "size": {
+                "0": 320,
+                "1": 314
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        153,
+                        154,
+                        155,
+                        175
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        165
+                    ],
+                    "shape": 3,
+                    "label": "遮罩",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "clipspace/clipspace-mask-285325.3000000003.png [input]",
+                "image"
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 88,
+            "type": "ImageOnlyCheckpointLoader",
+            "pos": [
+                -50,
+                230
+            ],
+            "size": {
+                "0": 320,
+                "1": 100
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        142
+                    ],
+                    "shape": 3,
+                    "slot_index": 0,
+                    "label": "模型"
+                },
+                {
+                    "name": "CLIP_VISION",
+                    "type": "CLIP_VISION",
+                    "links": [
+                        140
+                    ],
+                    "shape": 3,
+                    "slot_index": 1,
+                    "label": "CLIP视觉"
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        138,
+                        141,
+                        143,
+                        148
+                    ],
+                    "shape": 3,
+                    "slot_index": 2,
+                    "label": "VAE"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageOnlyCheckpointLoader"
+            },
+            "widgets_values": [
+                "svd_xt_1_1.safetensors"
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 89,
+            "type": "VAEEncodeForInpaint",
+            "pos": [
+                140,
+                770
+            ],
+            "size": {
+                "0": 320,
+                "1": 100
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "pixels",
+                    "type": "IMAGE",
+                    "link": 155,
+                    "label": "图像",
+                    "slot_index": 0
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 143,
+                    "label": "VAE"
+                },
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 171,
+                    "label": "遮罩",
+                    "slot_index": 2
+                },
+                {
+                    "name": "grow_mask_by",
+                    "type": "INT",
+                    "link": 164,
+                    "widget": {
+                        "name": "grow_mask_by"
+                    },
+                    "label": "遮罩延展",
+                    "slot_index": 3
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        149
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEEncodeForInpaint"
+            },
+            "widgets_values": [
+                10
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 112,
+            "type": "MaskBlur+",
+            "pos": [
+                -250,
+                770
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 173,
+                    "label": "遮罩"
+                },
+                {
+                    "name": "amount",
+                    "type": "FLOAT",
+                    "link": 178,
+                    "widget": {
+                        "name": "amount"
+                    },
+                    "label": "数量",
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        169,
+                        171,
+                        172
+                    ],
+                    "shape": 3,
+                    "label": "遮罩",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "MaskBlur+"
+            },
+            "widgets_values": [
+                6
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 110,
+            "type": "InvertMask",
+            "pos": [
+                -380,
+                770
+            ],
+            "size": {
+                "0": 210,
+                "1": 26
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 4,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 165,
+                    "label": "遮罩"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        166,
+                        173
+                    ],
+                    "shape": 3,
+                    "label": "遮罩",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "InvertMask"
+            },
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 114,
+            "type": "VHS_VideoCombine",
+            "pos": [
+                1308,
+                295
+            ],
+            "size": {
+                "0": 315,
+                "1": 218
+            },
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 179,
+                    "label": "图像"
+                },
+                {
+                    "name": "audio",
+                    "type": "VHS_AUDIO",
+                    "link": null,
+                    "label": "音频"
+                },
+                {
+                    "name": "batch_manager",
+                    "type": "VHS_BatchManager",
+                    "link": null,
+                    "label": "批次管理"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Filenames",
+                    "type": "VHS_FILENAMES",
+                    "links": null,
+                    "shape": 3,
+                    "label": "文件名"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_VideoCombine"
+            },
+            "widgets_values": {
+                "frame_rate": 6,
+                "loop_count": 0,
+                "filename_prefix": "SVD：运动笔刷",
+                "format": "image/gif",
+                "pingpong": false,
+                "save_output": true,
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {}
+                }
+            }
+        },
+        {
+            "id": 84,
+            "type": "VAEDecode",
+            "pos": [
+                1030.0035062985523,
+                330
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 137,
+                    "label": "Latent"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 138,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        179
+                    ],
+                    "slot_index": 0,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            }
+        }
+    ],
+    "links": [
+        [
+            131,
+            59,
+            0,
+            81,
+            0,
+            "IMAGE"
+        ],
+        [
+            133,
+            87,
+            0,
+            83,
+            0,
+            "MODEL"
+        ],
+        [
+            134,
+            86,
+            0,
+            83,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            135,
+            86,
+            1,
+            83,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            136,
+            91,
+            0,
+            83,
+            3,
+            "LATENT"
+        ],
+        [
+            137,
+            83,
+            0,
+            84,
+            0,
+            "LATENT"
+        ],
+        [
+            138,
+            88,
+            2,
+            84,
+            1,
+            "VAE"
+        ],
+        [
+            140,
+            88,
+            1,
+            86,
+            0,
+            "CLIP_VISION"
+        ],
+        [
+            141,
+            88,
+            2,
+            86,
+            2,
+            "VAE"
+        ],
+        [
+            142,
+            88,
+            0,
+            87,
+            0,
+            "MODEL"
+        ],
+        [
+            143,
+            88,
+            2,
+            89,
+            1,
+            "VAE"
+        ],
+        [
+            144,
+            92,
+            0,
+            90,
+            0,
+            "LATENT"
+        ],
+        [
+            145,
+            94,
+            0,
+            90,
+            1,
+            "INT"
+        ],
+        [
+            146,
+            93,
+            0,
+            91,
+            0,
+            "LATENT"
+        ],
+        [
+            147,
+            90,
+            0,
+            91,
+            1,
+            "LATENT"
+        ],
+        [
+            148,
+            88,
+            2,
+            92,
+            1,
+            "VAE"
+        ],
+        [
+            149,
+            89,
+            0,
+            93,
+            0,
+            "LATENT"
+        ],
+        [
+            150,
+            94,
+            0,
+            93,
+            1,
+            "INT"
+        ],
+        [
+            151,
+            86,
+            2,
+            94,
+            0,
+            "LATENT"
+        ],
+        [
+            153,
+            23,
+            0,
+            86,
+            1,
+            "IMAGE"
+        ],
+        [
+            154,
+            23,
+            0,
+            92,
+            0,
+            "IMAGE"
+        ],
+        [
+            155,
+            23,
+            0,
+            89,
+            0,
+            "IMAGE"
+        ],
+        [
+            164,
+            109,
+            0,
+            89,
+            3,
+            "INT"
+        ],
+        [
+            165,
+            23,
+            1,
+            110,
+            0,
+            "MASK"
+        ],
+        [
+            166,
+            110,
+            0,
+            100,
+            0,
+            "*"
+        ],
+        [
+            169,
+            112,
+            0,
+            101,
+            0,
+            "*"
+        ],
+        [
+            171,
+            112,
+            0,
+            89,
+            2,
+            "MASK"
+        ],
+        [
+            172,
+            112,
+            0,
+            59,
+            0,
+            "MASK"
+        ],
+        [
+            173,
+            110,
+            0,
+            112,
+            0,
+            "MASK"
+        ],
+        [
+            174,
+            59,
+            0,
+            113,
+            0,
+            "IMAGE"
+        ],
+        [
+            175,
+            23,
+            0,
+            113,
+            1,
+            "IMAGE"
+        ],
+        [
+            177,
+            113,
+            0,
+            82,
+            0,
+            "IMAGE"
+        ],
+        [
+            178,
+            105,
+            0,
+            112,
+            1,
+            "FLOAT"
+        ],
+        [
+            179,
+            84,
+            0,
+            114,
+            0,
+            "IMAGE"
+        ]
+    ],
+    "groups": [
+        {
+            "title": "Image to Video",
+            "bounding": [
+                324,
+                232,
+                947,
+                458
+            ],
+            "color": "#8A8",
+            "font_size": 24
+        }
+    ],
+    "config": {},
+    "extra": {
+        "groupNodes": {},
+        "workspace_info": {
+            "id": "8d1edee9-03a6-4853-a1ae-260c102d8e9e"
+        }
+    },
+    "version": 0.4
+}

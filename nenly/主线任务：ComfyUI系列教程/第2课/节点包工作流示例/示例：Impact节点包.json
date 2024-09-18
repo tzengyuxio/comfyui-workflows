@@ -1,0 +1,1187 @@
+{
+    "last_node_id": 34,
+    "last_link_id": 59,
+    "nodes": [
+        {
+            "id": 17,
+            "type": "ToBasicPipe",
+            "pos": [
+                570,
+                -50
+            ],
+            "size": {
+                "0": 241.79998779296875,
+                "1": 106
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 24,
+                    "label": "模型"
+                },
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 25,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 26,
+                    "label": "VAE"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 27,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 28,
+                    "label": "负面条件"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "basic_pipe",
+                    "type": "BASIC_PIPE",
+                    "links": [
+                        29
+                    ],
+                    "shape": 3,
+                    "label": "基础节点束",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ToBasicPipe"
+            },
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 10,
+            "type": "LatentUpscale",
+            "pos": [
+                1190,
+                -50
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 35,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        36
+                    ],
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LatentUpscale"
+            },
+            "widgets_values": [
+                "nearest-exact",
+                1152,
+                1152,
+                "disabled"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 13,
+            "type": "VAEDecode",
+            "pos": [
+                1890,
+                -100
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 38,
+                    "label": "Latent"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 42,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        17
+                    ],
+                    "slot_index": 0,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            },
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 16,
+            "type": "CheckpointLoaderSimple",
+            "pos": [
+                -240,
+                -20
+            ],
+            "size": {
+                "0": 315,
+                "1": 98
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        24
+                    ],
+                    "slot_index": 0,
+                    "label": "模型"
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        19,
+                        20,
+                        25
+                    ],
+                    "slot_index": 1,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        26
+                    ],
+                    "slot_index": 2,
+                    "label": "VAE"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+                "awportrait_v13.safetensors"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 25,
+            "type": "EmptyLatentImage",
+            "pos": [
+                170,
+                940
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        46
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+                768,
+                768,
+                1
+            ]
+        },
+        {
+            "id": 30,
+            "type": "LatentUpscale",
+            "pos": [
+                980,
+                510
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 52,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        56
+                    ],
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LatentUpscale"
+            },
+            "widgets_values": [
+                "nearest-exact",
+                1152,
+                1152,
+                "disabled"
+            ]
+        },
+        {
+            "id": 32,
+            "type": "SaveImage",
+            "pos": [
+                1940,
+                460
+            ],
+            "size": {
+                "0": 407.53717041015625,
+                "1": 468.13226318359375
+            },
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 57,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ]
+        },
+        {
+            "id": 33,
+            "type": "VAEDecode",
+            "pos": [
+                1700,
+                460
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 58,
+                    "label": "Latent"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 59,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        57
+                    ],
+                    "slot_index": 0,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            }
+        },
+        {
+            "id": 5,
+            "type": "EmptyLatentImage",
+            "pos": [
+                180,
+                270
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        33
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+                768,
+                768,
+                1
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 6,
+            "type": "CLIPTextEncode",
+            "pos": [
+                120,
+                -170
+            ],
+            "size": {
+                "0": 422.84503173828125,
+                "1": 164.31304931640625
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 19,
+                    "label": "CLIP"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        27
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "masterpiece HDR victorian portrait painting of woman, blonde hair, white simple_background, \n",
+                true
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 26,
+            "type": "CLIPTextEncode",
+            "pos": [
+                110,
+                510
+            ],
+            "size": {
+                "0": 422.84503173828125,
+                "1": 164.31304931640625
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 47,
+                    "label": "CLIP"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        44,
+                        54
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "masterpiece HDR victorian portrait painting of woman, blonde hair, white simple_background, \n",
+                true
+            ]
+        },
+        {
+            "id": 7,
+            "type": "CLIPTextEncode",
+            "pos": [
+                120,
+                40
+            ],
+            "size": {
+                "0": 425.27801513671875,
+                "1": 180.6060791015625
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 20,
+                    "label": "CLIP"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        28
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "bad hands, text, watermark, worst quality, embedding:ng_deepnegative_v1_75t, \n",
+                true
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 27,
+            "type": "CLIPTextEncode",
+            "pos": [
+                110,
+                720
+            ],
+            "size": {
+                "0": 425.27801513671875,
+                "1": 180.6060791015625
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 48,
+                    "label": "CLIP"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        45,
+                        55
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "bad hands, text, watermark, worst quality, embedding:ng_deepnegative_v1_75t, \n",
+                true
+            ]
+        },
+        {
+            "id": 34,
+            "type": "CheckpointLoaderSimple",
+            "pos": [
+                -240,
+                650
+            ],
+            "size": {
+                "0": 315,
+                "1": 98
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        43,
+                        53
+                    ],
+                    "slot_index": 0,
+                    "label": "模型"
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        47,
+                        48
+                    ],
+                    "slot_index": 1,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        59
+                    ],
+                    "slot_index": 2,
+                    "label": "VAE"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+                "awportrait_v13.safetensors"
+            ]
+        },
+        {
+            "id": 12,
+            "type": "SaveImage",
+            "pos": [
+                2130,
+                -140
+            ],
+            "size": {
+                "0": 407.53717041015625,
+                "1": 468.13226318359375
+            },
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 17,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 31,
+            "type": "KSampler",
+            "pos": [
+                1320,
+                450
+            ],
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 53,
+                    "slot_index": 0,
+                    "label": "模型"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 54,
+                    "slot_index": 1,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 55,
+                    "slot_index": 2,
+                    "label": "负面条件"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 56,
+                    "slot_index": 3,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        58
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                592852245030955,
+                "randomize",
+                14,
+                8,
+                "dpmpp_2m",
+                "simple",
+                0.5
+            ]
+        },
+        {
+            "id": 19,
+            "type": "ImpactKSamplerBasicPipe",
+            "pos": [
+                850,
+                -110
+            ],
+            "size": {
+                "0": 315,
+                "1": 242
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "basic_pipe",
+                    "type": "BASIC_PIPE",
+                    "link": 29,
+                    "label": "基础节点束"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 33,
+                    "label": "Latent"
+                },
+                {
+                    "name": "scheduler_func_opt",
+                    "type": "SCHEDULER_FUNC",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "BASIC_PIPE",
+                    "type": "BASIC_PIPE",
+                    "links": [
+                        37
+                    ],
+                    "shape": 3,
+                    "label": "基础节点束",
+                    "slot_index": 0
+                },
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        35
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 1
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "VAE"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImpactKSamplerBasicPipe"
+            },
+            "widgets_values": [
+                219467842026844,
+                "fixed",
+                20,
+                8,
+                "euler",
+                "normal",
+                1
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 24,
+            "type": "KSampler",
+            "pos": [
+                580,
+                510
+            ],
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 43,
+                    "label": "模型"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 44,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 45,
+                    "label": "负面条件"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 46,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        52
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                219467842026844,
+                "fixed",
+                12,
+                8,
+                "dpmpp_sde",
+                "normal",
+                1
+            ]
+        },
+        {
+            "id": 23,
+            "type": "ImpactKSamplerBasicPipe",
+            "pos": [
+                1530,
+                -100
+            ],
+            "size": {
+                "0": 315,
+                "1": 242
+            },
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "basic_pipe",
+                    "type": "BASIC_PIPE",
+                    "link": 37,
+                    "label": "基础节点束"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 36,
+                    "label": "Latent"
+                },
+                {
+                    "name": "scheduler_func_opt",
+                    "type": "SCHEDULER_FUNC",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "BASIC_PIPE",
+                    "type": "BASIC_PIPE",
+                    "links": [],
+                    "shape": 3,
+                    "label": "基础节点束",
+                    "slot_index": 0
+                },
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        38
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 1
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        42
+                    ],
+                    "shape": 3,
+                    "label": "VAE",
+                    "slot_index": 2
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImpactKSamplerBasicPipe"
+            },
+            "widgets_values": [
+                219467842026844,
+                "fixed",
+                20,
+                8,
+                "dpmpp_2m",
+                "simple",
+                0.5
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        }
+    ],
+    "links": [
+        [
+            17,
+            13,
+            0,
+            12,
+            0,
+            "IMAGE"
+        ],
+        [
+            19,
+            16,
+            1,
+            6,
+            0,
+            "CLIP"
+        ],
+        [
+            20,
+            16,
+            1,
+            7,
+            0,
+            "CLIP"
+        ],
+        [
+            24,
+            16,
+            0,
+            17,
+            0,
+            "MODEL"
+        ],
+        [
+            25,
+            16,
+            1,
+            17,
+            1,
+            "CLIP"
+        ],
+        [
+            26,
+            16,
+            2,
+            17,
+            2,
+            "VAE"
+        ],
+        [
+            27,
+            6,
+            0,
+            17,
+            3,
+            "CONDITIONING"
+        ],
+        [
+            28,
+            7,
+            0,
+            17,
+            4,
+            "CONDITIONING"
+        ],
+        [
+            29,
+            17,
+            0,
+            19,
+            0,
+            "BASIC_PIPE"
+        ],
+        [
+            33,
+            5,
+            0,
+            19,
+            1,
+            "LATENT"
+        ],
+        [
+            35,
+            19,
+            1,
+            10,
+            0,
+            "LATENT"
+        ],
+        [
+            36,
+            10,
+            0,
+            23,
+            1,
+            "LATENT"
+        ],
+        [
+            37,
+            19,
+            0,
+            23,
+            0,
+            "BASIC_PIPE"
+        ],
+        [
+            38,
+            23,
+            1,
+            13,
+            0,
+            "LATENT"
+        ],
+        [
+            42,
+            23,
+            2,
+            13,
+            1,
+            "VAE"
+        ],
+        [
+            43,
+            34,
+            0,
+            24,
+            0,
+            "MODEL"
+        ],
+        [
+            44,
+            26,
+            0,
+            24,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            45,
+            27,
+            0,
+            24,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            46,
+            25,
+            0,
+            24,
+            3,
+            "LATENT"
+        ],
+        [
+            47,
+            34,
+            1,
+            26,
+            0,
+            "CLIP"
+        ],
+        [
+            48,
+            34,
+            1,
+            27,
+            0,
+            "CLIP"
+        ],
+        [
+            52,
+            24,
+            0,
+            30,
+            0,
+            "LATENT"
+        ],
+        [
+            53,
+            34,
+            0,
+            31,
+            0,
+            "MODEL"
+        ],
+        [
+            54,
+            26,
+            0,
+            31,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            55,
+            27,
+            0,
+            31,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            56,
+            30,
+            0,
+            31,
+            3,
+            "LATENT"
+        ],
+        [
+            57,
+            33,
+            0,
+            32,
+            0,
+            "IMAGE"
+        ],
+        [
+            58,
+            31,
+            0,
+            33,
+            0,
+            "LATENT"
+        ],
+        [
+            59,
+            34,
+            2,
+            33,
+            1,
+            "VAE"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.724729500000001,
+            "offset": [
+                366.03462358243627,
+                429.5790541953921
+            ]
+        },
+        "workspace_info": {
+            "id": "e0173c9b-8451-4d24-8f50-bc928b5536a4"
+        }
+    },
+    "version": 0.4
+}

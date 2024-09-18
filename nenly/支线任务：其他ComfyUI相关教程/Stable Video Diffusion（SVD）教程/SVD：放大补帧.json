@@ -1,0 +1,958 @@
+{
+    "last_node_id": 82,
+    "last_link_id": 56,
+    "nodes": [
+        {
+            "id": 7,
+            "type": "ImageUpscaleWithModel",
+            "pos": [
+                -90,
+                420
+            ],
+            "size": {
+                "0": 310,
+                "1": 50
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "upscale_model",
+                    "type": "UPSCALE_MODEL",
+                    "link": 2,
+                    "label": "放大模型"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 13,
+                    "label": "图像"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        10
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageUpscaleWithModel"
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 8,
+            "type": "VHS_VideoCombine",
+            "pos": [
+                830,
+                200
+            ],
+            "size": [
+                320,
+                468.75
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 8,
+                    "label": "图像"
+                },
+                {
+                    "name": "audio",
+                    "type": "VHS_AUDIO",
+                    "link": null,
+                    "label": "音频"
+                },
+                {
+                    "name": "batch_manager",
+                    "type": "VHS_BatchManager",
+                    "link": null,
+                    "label": "批次管理"
+                },
+                {
+                    "name": "frame_rate",
+                    "type": "FLOAT",
+                    "link": 56,
+                    "widget": {
+                        "name": "frame_rate"
+                    },
+                    "label": "帧率"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Filenames",
+                    "type": "VHS_FILENAMES",
+                    "links": null,
+                    "shape": 3,
+                    "label": "文件名",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_VideoCombine"
+            },
+            "widgets_values": {
+                "frame_rate": 30,
+                "loop_count": 0,
+                "filename_prefix": "SVD_Upscale_VFI",
+                "format": "video/h264-mp4",
+                "pix_fmt": "yuv420p",
+                "crf": 19,
+                "save_metadata": true,
+                "pingpong": false,
+                "save_output": true,
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {
+                        "filename": "SVD_Upscale_VFI_00004.mp4",
+                        "subfolder": "",
+                        "type": "output",
+                        "format": "video/h264-mp4"
+                    }
+                }
+            }
+        },
+        {
+            "id": 67,
+            "type": "ImpactInt",
+            "pos": [
+                550,
+                710
+            ],
+            "size": {
+                "0": 210,
+                "1": 60
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [
+                        53,
+                        55
+                    ],
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImpactInt"
+            },
+            "widgets_values": [
+                30
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 80,
+            "type": "SimpleMath+",
+            "pos": [
+                540,
+                670
+            ],
+            "size": {
+                "0": 215.0001220703125,
+                "1": 78
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "a",
+                    "type": "INT,FLOAT",
+                    "link": null,
+                    "label": "A",
+                    "slot_index": 0
+                },
+                {
+                    "name": "b",
+                    "type": "INT,FLOAT",
+                    "link": 55,
+                    "label": "B",
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [],
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                },
+                {
+                    "name": "FLOAT",
+                    "type": "FLOAT",
+                    "links": [
+                        56
+                    ],
+                    "shape": 3,
+                    "label": "浮点",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SimpleMath+"
+            },
+            "widgets_values": [
+                "b"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 81,
+            "type": "Note",
+            "pos": [
+                -90,
+                810
+            ],
+            "size": {
+                "0": 310,
+                "1": 60
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "properties": {
+                "text": ""
+            },
+            "widgets_values": [
+                "请在此处输入放大后的宽度数值：\n如1080P尺寸可输入：1920"
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 2,
+            "type": "VHS_LoadVideo",
+            "pos": [
+                -380,
+                250
+            ],
+            "size": [
+                240,
+                375.75
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "batch_manager",
+                    "type": "VHS_BatchManager",
+                    "link": null,
+                    "label": "batch_manager"
+                },
+                {
+                    "name": "force_rate",
+                    "type": "INT",
+                    "link": 38,
+                    "widget": {
+                        "name": "force_rate"
+                    },
+                    "label": "强制帧率"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        13,
+                        25
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                },
+                {
+                    "name": "frame_count",
+                    "type": "INT",
+                    "links": [],
+                    "shape": 3,
+                    "label": "帧计数"
+                },
+                {
+                    "name": "audio",
+                    "type": "VHS_AUDIO",
+                    "links": null,
+                    "shape": 3,
+                    "label": "音频"
+                },
+                {
+                    "name": "video_info",
+                    "type": "VHS_VIDEOINFO",
+                    "links": null,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_LoadVideo"
+            },
+            "widgets_values": {
+                "video": "FINAL_00008.mp4",
+                "force_rate": 6,
+                "force_size": "Disabled",
+                "custom_width": 512,
+                "custom_height": 512,
+                "frame_load_cap": 0,
+                "skip_first_frames": 0,
+                "select_every_nth": 1,
+                "choose video to upload": "image",
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {
+                        "frame_load_cap": 0,
+                        "skip_first_frames": 0,
+                        "force_rate": 6,
+                        "filename": "FINAL_00008.mp4",
+                        "type": "input",
+                        "format": "video/mp4",
+                        "select_every_nth": 1
+                    }
+                }
+            }
+        },
+        {
+            "id": 66,
+            "type": "ImpactInt",
+            "pos": [
+                310,
+                710
+            ],
+            "size": {
+                "0": 220,
+                "1": 60
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [
+                        38,
+                        52
+                    ],
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImpactInt"
+            },
+            "widgets_values": [
+                6
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 49,
+            "type": "SimpleMath+",
+            "pos": [
+                90,
+                670
+            ],
+            "size": {
+                "0": 315,
+                "1": 78
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "a",
+                    "type": "INT,FLOAT",
+                    "link": 26,
+                    "label": "A"
+                },
+                {
+                    "name": "b",
+                    "type": "INT,FLOAT",
+                    "link": 31,
+                    "label": "B",
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": null,
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                },
+                {
+                    "name": "FLOAT",
+                    "type": "FLOAT",
+                    "links": [
+                        28
+                    ],
+                    "shape": 3,
+                    "label": "浮点",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SimpleMath+"
+            },
+            "widgets_values": [
+                "1/(a*4/b)"
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 64,
+            "type": "SimpleMath+",
+            "pos": [
+                410,
+                670
+            ],
+            "size": {
+                "0": 210,
+                "1": 78
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "a",
+                    "type": "INT,FLOAT",
+                    "link": 52,
+                    "label": "A",
+                    "slot_index": 0
+                },
+                {
+                    "name": "b",
+                    "type": "INT,FLOAT",
+                    "link": 53,
+                    "label": "B",
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [
+                        40
+                    ],
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                },
+                {
+                    "name": "FLOAT",
+                    "type": "FLOAT",
+                    "links": [],
+                    "shape": 3,
+                    "label": "浮点",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SimpleMath+"
+            },
+            "widgets_values": [
+                "b/a"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 60,
+            "type": "ImpactInt",
+            "pos": [
+                -90,
+                710
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "INT",
+                    "type": "INT",
+                    "links": [
+                        31
+                    ],
+                    "shape": 3,
+                    "label": "整数",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImpactInt"
+            },
+            "widgets_values": [
+                1920
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 48,
+            "type": "GetImageSize+",
+            "pos": [
+                -90,
+                670
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {
+                "collapsed": true
+            },
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 25,
+                    "label": "图像"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "width",
+                    "type": "INT",
+                    "links": [
+                        26
+                    ],
+                    "shape": 3,
+                    "label": "宽度",
+                    "slot_index": 0
+                },
+                {
+                    "name": "height",
+                    "type": "INT",
+                    "links": null,
+                    "shape": 3,
+                    "label": "高度",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "GetImageSize+"
+            },
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 14,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": {
+                "0": -120,
+                "1": 90,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+            },
+            "size": {
+                "0": 252,
+                "1": 110
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": null,
+                    "label": "OPT_CONNECTION"
+                }
+            ],
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "",
+                "showNav": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 82,
+            "type": "Note",
+            "pos": [
+                310,
+                810
+            ],
+            "size": {
+                "0": 450,
+                "1": 60
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "properties": {
+                "text": ""
+            },
+            "widgets_values": [
+                "请在两个位置分别输入原始视频的帧率和补帧后的目标帧率：\n如原始视频为6帧，希望补帧至30帧，则可输入：6（左），30（右）\n如无需补帧则将两个数值设置为相同的初始值，如：6（左），6（右）"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 10,
+            "type": "ImageScaleBy",
+            "pos": [
+                -90,
+                510
+            ],
+            "size": {
+                "0": 320,
+                "1": 80
+            },
+            "flags": {},
+            "order": 13,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 10,
+                    "label": "图像"
+                },
+                {
+                    "name": "scale_by",
+                    "type": "FLOAT",
+                    "link": 28,
+                    "widget": {
+                        "name": "scale_by"
+                    },
+                    "label": "系数"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        14
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageScaleBy"
+            },
+            "widgets_values": [
+                "nearest-exact",
+                0.5
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 6,
+            "type": "UpscaleModelLoader",
+            "pos": [
+                -90,
+                320
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 4,
+            "outputs": [
+                {
+                    "name": "UPSCALE_MODEL",
+                    "type": "UPSCALE_MODEL",
+                    "links": [
+                        2
+                    ],
+                    "shape": 3,
+                    "label": "放大模型",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "UpscaleModelLoader"
+            },
+            "widgets_values": [
+                "4xUltrasharp_4xUltrasharpV10.pth"
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 9,
+            "type": "FILM VFI",
+            "pos": [
+                310,
+                370
+            ],
+            "size": {
+                "0": 443.4000244140625,
+                "1": 126
+            },
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "frames",
+                    "type": "IMAGE",
+                    "link": 14,
+                    "label": "frames"
+                },
+                {
+                    "name": "optional_interpolation_states",
+                    "type": "INTERPOLATION_STATES",
+                    "link": null,
+                    "label": "optional_interpolation_states",
+                    "slot_index": 1
+                },
+                {
+                    "name": "multiplier",
+                    "type": "INT",
+                    "link": 40,
+                    "widget": {
+                        "name": "multiplier"
+                    },
+                    "label": "multiplier"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        8
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "FILM VFI"
+            },
+            "widgets_values": [
+                "film_net_fp32.pt",
+                10,
+                5
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        }
+    ],
+    "links": [
+        [
+            2,
+            6,
+            0,
+            7,
+            0,
+            "UPSCALE_MODEL"
+        ],
+        [
+            8,
+            9,
+            0,
+            8,
+            0,
+            "IMAGE"
+        ],
+        [
+            10,
+            7,
+            0,
+            10,
+            0,
+            "IMAGE"
+        ],
+        [
+            13,
+            2,
+            0,
+            7,
+            1,
+            "IMAGE"
+        ],
+        [
+            14,
+            10,
+            0,
+            9,
+            0,
+            "IMAGE"
+        ],
+        [
+            25,
+            2,
+            0,
+            48,
+            0,
+            "IMAGE"
+        ],
+        [
+            26,
+            48,
+            0,
+            49,
+            0,
+            "INT,FLOAT"
+        ],
+        [
+            28,
+            49,
+            1,
+            10,
+            1,
+            "FLOAT"
+        ],
+        [
+            31,
+            60,
+            0,
+            49,
+            1,
+            "INT,FLOAT"
+        ],
+        [
+            38,
+            66,
+            0,
+            2,
+            1,
+            "INT"
+        ],
+        [
+            40,
+            64,
+            0,
+            9,
+            2,
+            "INT"
+        ],
+        [
+            52,
+            66,
+            0,
+            64,
+            0,
+            "INT,FLOAT"
+        ],
+        [
+            53,
+            67,
+            0,
+            64,
+            1,
+            "INT,FLOAT"
+        ],
+        [
+            55,
+            67,
+            0,
+            80,
+            1,
+            "INT,FLOAT"
+        ],
+        [
+            56,
+            80,
+            1,
+            8,
+            3,
+            "FLOAT"
+        ]
+    ],
+    "groups": [
+        {
+            "title": "放大",
+            "bounding": [
+                -125,
+                216,
+                397,
+                411
+            ],
+            "color": "#3f789e",
+            "font_size": 24
+        },
+        {
+            "title": "补帧",
+            "bounding": [
+                282,
+                218,
+                507,
+                411
+            ],
+            "color": "#8A8",
+            "font_size": 24
+        }
+    ],
+    "config": {},
+    "extra": {
+        "workspace_info": {
+            "id": "62a1d82a-a022-4c9f-a6e9-88e49ce9ae2a"
+        }
+    },
+    "version": 0.4
+}

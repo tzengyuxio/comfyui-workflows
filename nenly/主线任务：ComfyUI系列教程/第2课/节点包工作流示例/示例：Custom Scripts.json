@@ -1,0 +1,723 @@
+{
+    "last_node_id": 19,
+    "last_link_id": 16,
+    "nodes": [
+        {
+            "id": 3,
+            "type": "KSampler",
+            "pos": [
+                750,
+                240
+            ],
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 1,
+                    "label": "模型"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 4,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 6,
+                    "label": "负面条件"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 2,
+                    "label": "Latent"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        7
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                960051348444797,
+                "randomize",
+                20,
+                8,
+                "euler",
+                "normal",
+                1
+            ]
+        },
+        {
+            "id": 4,
+            "type": "CheckpointLoaderSimple",
+            "pos": [
+                40,
+                310
+            ],
+            "size": {
+                "0": 315,
+                "1": 98
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        1
+                    ],
+                    "slot_index": 0,
+                    "label": "模型"
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        3,
+                        5
+                    ],
+                    "slot_index": 1,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        8
+                    ],
+                    "slot_index": 2,
+                    "label": "VAE"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+                "AWPainting_v1.3.safetensors"
+            ]
+        },
+        {
+            "id": 16,
+            "type": "LoadImage",
+            "pos": [
+                -390,
+                70
+            ],
+            "size": {
+                "0": 320,
+                "1": 310
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        15
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "shape": 3,
+                    "label": "遮罩"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "pexels-michal-knotek-542403.jpg",
+                "image"
+            ]
+        },
+        {
+            "id": 13,
+            "type": "AutoNegativePrompt",
+            "pos": [
+                -50,
+                480
+            ],
+            "size": {
+                "0": 400,
+                "1": 246.00001525878906
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "negative_prompt",
+                    "type": "STRING",
+                    "links": [
+                        12,
+                        13
+                    ],
+                    "shape": 3,
+                    "label": "负面提示词",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "AutoNegativePrompt"
+            },
+            "widgets_values": [
+                "",
+                "text, watermark",
+                1,
+                0,
+                "SD1.5",
+                256645773655549,
+                "randomize",
+                true,
+                true
+            ]
+        },
+        {
+            "id": 5,
+            "type": "EmptyLatentImage",
+            "pos": [
+                400,
+                480
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        2
+                    ],
+                    "slot_index": 0,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+                768,
+                512,
+                1
+            ]
+        },
+        {
+            "id": 12,
+            "type": "ShowText|pysssss",
+            "pos": [
+                400,
+                630
+            ],
+            "size": {
+                "0": 310,
+                "1": 180
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 13,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "文本"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "字符串"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ShowText|pysssss"
+            },
+            "widgets_values": [
+                [
+                    ", worst quality, low quality, normal quality, lowres, low details, oversaturated, undersaturated, overexposed, underexposed, grayscale, bw, bad photo, bad photography, bad art, watermark, signature, text font, username, error, logo, words, letters, digits, autograph, trademark, name, blur, blurry, grainy, ugly, asymmetrical, poorly lit, bad shadow, draft, cropped, out of frame, cut off, censored, jpeg artifacts, out of focus, glitch, duplicate, text, watermark"
+                ],
+                ", worst quality, low quality, normal quality, lowres, low details, oversaturated, undersaturated, overexposed, underexposed, grayscale, bw, bad photo, bad photography, bad art, watermark, signature, text font, username, error, logo, words, letters, digits, autograph, trademark, name, blur, blurry, grainy, ugly, asymmetrical, poorly lit, bad shadow, draft, cropped, out of frame, cut off, censored, jpeg artifacts, out of focus, glitch, duplicate, text, watermark"
+            ]
+        },
+        {
+            "id": 15,
+            "type": "ShowText|pysssss",
+            "pos": [
+                410,
+                -170
+            ],
+            "size": {
+                "0": 310,
+                "1": 190
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 14,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "文本"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "字符串"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ShowText|pysssss"
+            },
+            "widgets_values": [
+                [
+                    "outdoors, sky, day, cloud, tree, blue_sky, no_humans, window, shadow, plant, building, scenery, city, potted_plant, road, lamppost, street, flower_pot, pavement"
+                ],
+                "outdoors, sky, day, cloud, tree, blue_sky, no_humans, window, shadow, plant, building, scenery, city, potted_plant, road, lamppost, street, flower_pot, pavement"
+            ]
+        },
+        {
+            "id": 11,
+            "type": "SaveImage",
+            "pos": [
+                1360,
+                290
+            ],
+            "size": {
+                "0": 320,
+                "1": 270
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 10,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ]
+        },
+        {
+            "id": 19,
+            "type": "PlaySound|pysssss",
+            "pos": [
+                1360,
+                130
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "any",
+                    "type": "*",
+                    "link": 16,
+                    "label": "输入"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "*",
+                    "type": "*",
+                    "links": null,
+                    "shape": 6,
+                    "label": "*"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PlaySound|pysssss"
+            },
+            "widgets_values": [
+                "always",
+                0.5,
+                "notify.mp3"
+            ]
+        },
+        {
+            "id": 8,
+            "type": "VAEDecode",
+            "pos": [
+                1090,
+                170
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 7,
+                    "label": "Latent"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 8,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        10,
+                        16
+                    ],
+                    "slot_index": 0,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            }
+        },
+        {
+            "id": 10,
+            "type": "WD14Tagger|pysssss",
+            "pos": [
+                -40,
+                30
+            ],
+            "size": {
+                "0": 390,
+                "1": 220
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 15,
+                    "label": "图像"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": [
+                        11,
+                        14
+                    ],
+                    "shape": 6,
+                    "label": "字符串",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "WD14Tagger|pysssss"
+            },
+            "widgets_values": [
+                "wd-v1-4-moat-tagger-v2",
+                0.35,
+                0.85,
+                false,
+                false,
+                ""
+            ]
+        },
+        {
+            "id": 6,
+            "type": "CLIPTextEncode",
+            "pos": [
+                400,
+                280
+            ],
+            "size": {
+                "0": 210,
+                "1": 54
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 3,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 11,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "文本"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        4
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,",
+                true
+            ]
+        },
+        {
+            "id": 7,
+            "type": "CLIPTextEncode",
+            "pos": [
+                400,
+                380
+            ],
+            "size": {
+                "0": 210,
+                "1": 54
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 5,
+                    "label": "CLIP"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 12,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "文本"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        6
+                    ],
+                    "slot_index": 0,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "",
+                true
+            ]
+        }
+    ],
+    "links": [
+        [
+            1,
+            4,
+            0,
+            3,
+            0,
+            "MODEL"
+        ],
+        [
+            2,
+            5,
+            0,
+            3,
+            3,
+            "LATENT"
+        ],
+        [
+            3,
+            4,
+            1,
+            6,
+            0,
+            "CLIP"
+        ],
+        [
+            4,
+            6,
+            0,
+            3,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            5,
+            4,
+            1,
+            7,
+            0,
+            "CLIP"
+        ],
+        [
+            6,
+            7,
+            0,
+            3,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            7,
+            3,
+            0,
+            8,
+            0,
+            "LATENT"
+        ],
+        [
+            8,
+            4,
+            2,
+            8,
+            1,
+            "VAE"
+        ],
+        [
+            10,
+            8,
+            0,
+            11,
+            0,
+            "IMAGE"
+        ],
+        [
+            11,
+            10,
+            0,
+            6,
+            1,
+            "STRING"
+        ],
+        [
+            12,
+            13,
+            0,
+            7,
+            1,
+            "STRING"
+        ],
+        [
+            13,
+            13,
+            0,
+            12,
+            0,
+            "STRING"
+        ],
+        [
+            14,
+            10,
+            0,
+            15,
+            0,
+            "STRING"
+        ],
+        [
+            15,
+            16,
+            0,
+            10,
+            0,
+            "IMAGE"
+        ],
+        [
+            16,
+            8,
+            0,
+            19,
+            0,
+            "*"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.9646149645000016,
+            "offset": [
+                374.29253635496167,
+                324.8985413511746
+            ]
+        },
+        "workspace_info": {
+            "id": "95934d50-57ae-44a8-8284-dc6360f350ba"
+        }
+    },
+    "version": 0.4
+}
