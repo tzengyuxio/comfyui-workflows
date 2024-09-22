@@ -1,0 +1,326 @@
+{
+    "last_node_id": 26,
+    "last_link_id": 40,
+    "nodes": [
+        {
+            "id": 20,
+            "type": "LLM_api_loader",
+            "pos": [
+                572,
+                232
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        37
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_api_loader"
+            },
+            "widgets_values": [
+                "gpt-4-turbo",
+                "",
+                ""
+            ]
+        },
+        {
+            "id": 21,
+            "type": "load_persona",
+            "pos": [
+                561,
+                406
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "system_prompt",
+                    "type": "STRING",
+                    "links": [
+                        38
+                    ],
+                    "shape": 3,
+                    "label": "system_prompt",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "load_persona"
+            },
+            "widgets_values": [
+                "互动小说",
+                true,
+                ""
+            ]
+        },
+        {
+            "id": 23,
+            "type": "story_json_tool",
+            "pos": [
+                567,
+                574
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "links": [
+                        39
+                    ],
+                    "shape": 3,
+                    "label": "tools",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "story_json_tool"
+            },
+            "widgets_values": [
+                "量子永生教.json",
+                true
+            ]
+        },
+        {
+            "id": 11,
+            "type": "show_text_party",
+            "pos": [
+                1361,
+                258
+            ],
+            "size": {
+                "0": 414.8237609863281,
+                "1": 287.0350646972656
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 40,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                "",
+                "你输入完了完整的密码：2969mlw42，但是发现清醒程序返回了权限不够。一旁的道士沉思了一会说到：“原来你只是你的一个副脑，一般是副脑要逃离虚拟世界就是报这个错误，我去了太多的虚拟世界，见过太多了。”或许你真的是一个副脑，又或者你的副脑篡改了权限，取代了你。你的记忆太模糊了，甚至连自己也没有坚信自己不是一个生活在虚拟世界的程序。又或者你和副脑本质上没有区别，都是你本体意识的备份，只是现在的这个你没有被本体选中罢了。你或许是本体意识专门用来做某些工作的专用人格也说不定。但不管怎么说，道士是说对了，确实每一个人都永生了，而你永生的方式，就是困在这个孤独的虚拟世界里，无法醒来。达成真结局：【副脑人格】\n\n这场互动小说游戏到此结束了。如果你想再次体验或尝试不同的选择，可以随时告诉我重新开始。谢谢你的参与！"
+            ]
+        },
+        {
+            "id": 26,
+            "type": "LLM",
+            "pos": [
+                940,
+                260
+            ],
+            "size": [
+                400.24361199413534,
+                461.06699274647633
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 37,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": 38,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    }
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    }
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": 39,
+                    "widget": {
+                        "name": "tools"
+                    }
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        40
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "",
+                "你好",
+                0.7,
+                "enable",
+                "disable",
+                "disable",
+                "enable",
+                1920,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        }
+    ],
+    "links": [
+        [
+            37,
+            20,
+            0,
+            26,
+            0,
+            "CUSTOM"
+        ],
+        [
+            38,
+            21,
+            0,
+            26,
+            2,
+            "STRING"
+        ],
+        [
+            39,
+            23,
+            0,
+            26,
+            4,
+            "STRING"
+        ],
+        [
+            40,
+            26,
+            0,
+            11,
+            0,
+            "STRING"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 1,
+            "offset": {
+                "0": -399.24361199413545,
+                "1": -49.0669927464763
+            }
+        },
+        "workspace_info": {
+            "id": "5626bce3-43e6-4267-b0fb-92e090b23ddf"
+        }
+    },
+    "version": 0.4
+}

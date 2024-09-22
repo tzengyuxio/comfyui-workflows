@@ -1,0 +1,802 @@
+{
+    "last_node_id": 71,
+    "last_link_id": 74,
+    "nodes": [
+        {
+            "id": 56,
+            "type": "VAEDecode",
+            "pos": [
+                2873.239392250689,
+                301.5725193208629
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 44,
+                    "label": "Latent"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 45,
+                    "label": "VAE"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        46
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            }
+        },
+        {
+            "id": 54,
+            "type": "KSampler",
+            "pos": [
+                2421,
+                285
+            ],
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 42,
+                    "label": "模型"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 67,
+                    "label": "正面条件"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 43,
+                    "label": "负面条件",
+                    "slot_index": 2
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 50,
+                    "label": "Latent",
+                    "slot_index": 3
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        44
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                665178491272069,
+                "randomize",
+                20,
+                8,
+                "euler",
+                "normal",
+                1
+            ]
+        },
+        {
+            "id": 55,
+            "type": "CLIPTextEncode",
+            "pos": [
+                1628,
+                628
+            ],
+            "size": {
+                "0": 400,
+                "1": 200
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 47,
+                    "label": "CLIP"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        43
+                    ],
+                    "shape": 3,
+                    "label": "条件"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "NSFW,(text), animal ears, (logo), (watermark), ((big hands, un-detailed skin, sketch, cartoon, drawing)), ((ugly mouth, ugly eyes, missing teeth, crooked teeth, cropped, out of frame)), worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck,(more than two arm per body:1.5), (more than two leg per body:1.5), (more than five fingers on one hand:1.5), multi arms, multi legs, bad arm anatomy, bad leg anatomy, bad hand anatomy, bad finger anatomy, bad detailed background, unclear architectural outline, non-linear background, elf-ears, hair crosses the screen border, obesity, fat, lowres, worst quality, low quality, blurry, mutated hands and fingers, disfigured, fused, cloned, duplicate, artist name, giantess, odd eyes, long fingers, long neck, handrail,paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), skin spots, acnes, skin blemishes, age spot, bad eyes, asymmetric eyes, tattoo,"
+            ]
+        },
+        {
+            "id": 57,
+            "type": "PreviewImage",
+            "pos": [
+                3228,
+                304
+            ],
+            "size": {
+                "0": 210,
+                "1": 246
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 46,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 60,
+            "type": "EmptyLatentImage",
+            "pos": [
+                1674,
+                895
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        50
+                    ],
+                    "shape": 3,
+                    "label": "Latent"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+                512,
+                512,
+                1
+            ]
+        },
+        {
+            "id": 68,
+            "type": "omost_decode",
+            "pos": [
+                1640,
+                447
+            ],
+            "size": {
+                "0": 315,
+                "1": 102
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 65,
+                    "label": "clip"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 73,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "conditioning",
+                    "type": "CONDITIONING",
+                    "links": [
+                        67
+                    ],
+                    "shape": 3,
+                    "label": "conditioning",
+                    "slot_index": 0
+                },
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        68
+                    ],
+                    "shape": 3,
+                    "label": "mask",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "omost_decode"
+            },
+            "widgets_values": [
+                "",
+                "fusion",
+                1
+            ]
+        },
+        {
+            "id": 69,
+            "type": "MaskToImage",
+            "pos": [
+                2366.575962939467,
+                719.3144047713071
+            ],
+            "size": {
+                "0": 210,
+                "1": 26
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 68,
+                    "label": "遮罩"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        69
+                    ],
+                    "shape": 3,
+                    "label": "图像",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "MaskToImage"
+            }
+        },
+        {
+            "id": 70,
+            "type": "PreviewImage",
+            "pos": [
+                2720.8881629394664,
+                819.8493012251645
+            ],
+            "size": {
+                "0": 210,
+                "1": 246
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 69,
+                    "label": "图像"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 67,
+            "type": "show_text_party",
+            "pos": [
+                1634,
+                1069
+            ],
+            "size": {
+                "0": 421.1827392578125,
+                "1": 646.0502319335938
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 74,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                "",
+                "```python\n# Initialize the canvas\ncanvas = Canvas()\n\n# Set a global description for the canvas\ncanvas.set_global_description(\n    description='A beautiful woman wearing a red hat, with blue eyes and white hair.',\n    detailed_descriptions=[\n        'The image portrays a strikingly beautiful woman who stands out with her unique appearance.',\n        'She is wearing a vibrant red hat that adds a pop of color to the scene.',\n        'Her eyes are a striking blue, contrasting sharply with her fair skin and white hair, which cascades gracefully around her shoulders.',\n        'The red hat is stylish and elegant, complementing her overall look.',\n        'The background is simple, allowing the focus to remain on her captivating features and the boldness of her attire.',\n        'The lighting is soft, highlighting her facial features and the texture of her hair.',\n        'The overall atmosphere is one of elegance and sophistication, with a touch of boldness and uniqueness.',\n    ],\n    tags='beautiful woman, red hat, blue eyes, white hair, striking appearance, vibrant color, elegant, stylish, captivating features, soft lighting, texture, fair skin, unique, bold, sophisticated, graceful, simple background, focus, striking contrast, fair skin, cascading hair',\n    HTML_web_color_name='lightcoral',\n)\n\n# Add the woman wearing the red hat.\ncanvas.add_local_description(\n    location='in the center',\n    offset='no offset',\n    area='a medium-sized vertical area',\n    distance_to_viewer=1.0,\n    description='The woman wearing the red hat.',\n    detailed_descriptions=[\n        'The woman is positioned centrally in the image, making her the focal point.',\n        'She is wearing a vibrant red hat that is stylish and adds a bold touch to her overall appearance.',\n        'Her blue eyes are striking and draw immediate attention.',\n        'Her white hair is silky and flows gracefully, adding to her elegant look.',\n        'Her fair skin is smooth and well-lit, enhancing her delicate features.',\n        'The red hat complements her blue eyes and white hair, creating a harmonious and visually appealing combination.',\n        'The lighting is soft, ensuring that her features are highlighted without being harsh.',\n        'The background is kept simple to ensure that the focus remains on her.',\n    ],\n    tags='woman, red hat, blue eyes, white hair, central position, focal point, stylish, bold, elegant, silky hair, graceful, fair skin, delicate features, harmonious, visually appealing, soft lighting, highlighted features, simple background, striking eyes, smooth skin',\n    atmosphere='Elegant and sophisticated with a touch of boldness.',\n    style='Soft lighting with a focus on highlighting facial features.',\n    quality_meta='High-quality image with a clear focus on the subject.',\n    HTML_web_color_name='crimson',\n)\n\n# Add the woman's blue eyes.\ncanvas.add_local_description(\n    location='on the left',\n    offset='slightly to the upper-left',\n    area='a small square area',\n    distance_to_viewer=1.5,\n    description=\"The woman's blue eyes.\",\n    detailed_descriptions=[\n        \"The woman's blue eyes are one of the most striking features in the image.\",\n        'They are positioned slightly to the upper-left, adding depth and interest to the composition.',\n        'The blue of her eyes is vibrant and clear, contrasting beautifully with her fair skin and white hair.',\n        'The soft lighting highlights the depth and clarity of her eyes, making them stand out.',\n        'The eyes are framed by long lashes and arched eyebrows, adding to their allure.',\n        'The placement of her eyes in the upper-left portion of the image draws the viewer’s attention and balances the composition.',\n    ],\n    tags='blue eyes, striking feature, upper-left, depth, interest, vibrant, clear, contrast, fair skin, white hair, soft lighting, depth, clarity, stand out, long lashes, arched eyebrows, allure, placement, attention, balanced composition',\n    atmosphere='Captivating and eye-catching with a focus on depth.',\n    style='Soft lighting to highlight the depth and clarity of the eyes.',\n    quality_meta='High-quality image with a focus on the striking blue eyes.',\n    HTML_web_color_name='skyblue',\n)\n\n# Add the woman's white hair.\ncanvas.add_local_description(\n    location='on the right',\n    offset='slightly to the upper-right',\n    area='a small square area',\n    distance_to_viewer=1.5,\n    description=\"The woman's white hair.\",\n    detailed_descriptions=[\n        \"The woman's white hair is another notable feature in the image.\",\n        'It cascades gracefully, framing her face and adding a touch of elegance.',\n        'The white hair is silky and well-lit, reflecting the soft lighting beautifully.',\n        'It flows naturally, creating a sense of movement and life.',\n        'The white color of her hair contrasts with her fair skin and blue eyes, adding to the overall visual appeal.',\n        'The positioning of her hair slightly to the upper-right adds balance to the composition, drawing the viewer’s eye around the image.',\n        'The texture and shine of her hair are captured in great detail, adding to the realism of the image.',\n    ],\n    tags='white hair, notable feature, cascading, graceful, elegant, silky, well-lit, soft lighting, natural flow, movement, life, contrast, fair skin, blue eyes, visual appeal, upper-right, balance, composition, texture, shine, detailed, realism',\n    atmosphere='Elegant and graceful with a touch of natural beauty.',\n    style='Soft lighting to capture the texture and shine of the hair.',\n    quality_meta='High-quality image with detailed capture of hair texture.',\n    HTML_web_color_name='white',\n)\n\n# Add the woman's red hat.\ncanvas.add_local_description(\n    location='on the top',\n    offset='slightly to the upper',\n    area='a small horizontal area',\n    distance_to_viewer=2.0,\n    description=\"The woman's red hat.\",\n    detailed_descriptions=[\n        \"The woman's red hat is a striking element in the image.\",\n        'It is positioned slightly to the upper part of the frame, adding a pop of color and drawing attention.',\n        'The hat is stylish and elegant, with a vibrant red color that stands out against the simpler background.',\n        'The soft lighting highlights the texture and details of the hat, making it a focal point.',\n        'The red color of the hat complements her blue eyes and white hair, creating a harmonious color scheme.',\n        'The positioning of the hat slightly to the upper part of the image balances the overall composition, adding depth and interest.',\n        'The hat adds a bold and vibrant touch to her elegant appearance.',\n    ],\n    tags='red hat, striking element, upper part, pop of color, attention, stylish, elegant, vibrant, contrast, simple background, soft lighting, texture, details, focal point, harmonious, blue eyes, white hair, color scheme, balanced composition, depth, interest, bold, vibrant, elegant appearance',\n    atmosphere='Bold and vibrant with a touch of elegance.',\n    style='Soft lighting to highlight the texture and details of the hat.',\n    quality_meta='High-quality image with a focus on the vibrant red hat.',\n    HTML_web_color_name='firebrick',\n)\n\n# Add the woman's fair skin.\ncanvas.add_local_description(\n    location='on the bottom',\n    offset='slightly to the lower',\n    area='a small horizontal area',\n    distance_to_viewer=2.0,\n    description=\"The woman's fair skin.\",\n    detailed_descriptions=[\n        \"The woman's fair skin is a key feature in the image.\",\n        'It is positioned slightly to the lower part of the frame, adding a delicate and smooth texture to the overall composition.',\n        'The fair skin is well-lit, highlighting its smooth and flawless texture.',\n        'The soft lighting enhances the natural glow of her skin, making it appear healthy and radiant.',\n        'The fair color of her skin contrasts with her blue eyes and white hair, adding to the visual appeal of the image.',\n        'The positioning of her skin slightly to the lower part of the frame balances the composition, drawing the viewer’s eye around the image.',\n        'The texture and smoothness of her skin are captured in great detail, adding to the realism of the image.',\n    ],\n    tags='fair skin, key feature, lower part, delicate, smooth texture, overall composition, well-lit, smooth, flawless, soft lighting, natural glow, healthy, radiant, contrast, blue eyes, white hair, visual appeal, balanced composition, eye-catching, texture, smoothness, detailed, realism',\n    atmosphere='Delicate and smooth with a natural glow.',\n    style='Soft lighting to enhance the natural glow of the skin.',\n    quality_meta='High-quality image with detailed capture of skin texture.',\n    HTML_web_color_name='palegoldenrod',\n)\n```"
+            ]
+        },
+        {
+            "id": 71,
+            "type": "LLM_local",
+            "pos": [
+                950,
+                506
+            ],
+            "size": {
+                "0": 448.7073974609375,
+                "1": 502.29705810546875
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 70,
+                    "label": "model"
+                },
+                {
+                    "name": "tokenizer",
+                    "type": "CUSTOM",
+                    "link": 71,
+                    "label": "tokenizer"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "image"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": 72,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    },
+                    "label": "system_prompt_input"
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    },
+                    "label": "user_prompt_input"
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "tools"
+                    },
+                    "label": "tools"
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        73,
+                        74
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_local"
+            },
+            "widgets_values": [
+                "",
+                "请画一个戴着红色帽子的美女，眼睛是蓝色的，头发是白色的",
+                "llama",
+                0.7,
+                2048,
+                "enable",
+                "disable",
+                "enable",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        },
+        {
+            "id": 63,
+            "type": "load_persona",
+            "pos": [
+                528,
+                775
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "system_prompt",
+                    "type": "STRING",
+                    "links": [
+                        72
+                    ],
+                    "shape": 3,
+                    "label": "system_prompt",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "load_persona"
+            },
+            "widgets_values": [
+                "omost",
+                true,
+                ""
+            ]
+        },
+        {
+            "id": 51,
+            "type": "CheckpointLoaderSimple",
+            "pos": [
+                1027,
+                344
+            ],
+            "size": {
+                "0": 315,
+                "1": 98
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        42
+                    ],
+                    "shape": 3,
+                    "label": "模型",
+                    "slot_index": 0
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        47,
+                        65
+                    ],
+                    "shape": 3,
+                    "label": "CLIP",
+                    "slot_index": 1
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        45
+                    ],
+                    "shape": 3,
+                    "label": "VAE",
+                    "slot_index": 2
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+                "oldFishOldschool_2307211635D.safetensors"
+            ]
+        },
+        {
+            "id": 61,
+            "type": "LLM_local_loader",
+            "pos": [
+                527,
+                506
+            ],
+            "size": {
+                "0": 315,
+                "1": 198
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        70
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                },
+                {
+                    "name": "tokenizer",
+                    "type": "CUSTOM",
+                    "links": [
+                        71
+                    ],
+                    "shape": 3,
+                    "label": "tokenizer",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_local_loader"
+            },
+            "widgets_values": [
+                "llama",
+                "llama",
+                "E:\\GitHub\\model\\omost",
+                "E:\\GitHub\\model\\omost",
+                "auto",
+                "float32"
+            ]
+        }
+    ],
+    "links": [
+        [
+            42,
+            51,
+            0,
+            54,
+            0,
+            "MODEL"
+        ],
+        [
+            43,
+            55,
+            0,
+            54,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            44,
+            54,
+            0,
+            56,
+            0,
+            "LATENT"
+        ],
+        [
+            45,
+            51,
+            2,
+            56,
+            1,
+            "VAE"
+        ],
+        [
+            46,
+            56,
+            0,
+            57,
+            0,
+            "IMAGE"
+        ],
+        [
+            47,
+            51,
+            1,
+            55,
+            0,
+            "CLIP"
+        ],
+        [
+            50,
+            60,
+            0,
+            54,
+            3,
+            "LATENT"
+        ],
+        [
+            65,
+            51,
+            1,
+            68,
+            0,
+            "CLIP"
+        ],
+        [
+            67,
+            68,
+            0,
+            54,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            68,
+            68,
+            1,
+            69,
+            0,
+            "MASK"
+        ],
+        [
+            69,
+            69,
+            0,
+            70,
+            0,
+            "IMAGE"
+        ],
+        [
+            70,
+            61,
+            0,
+            71,
+            0,
+            "CUSTOM"
+        ],
+        [
+            71,
+            61,
+            1,
+            71,
+            1,
+            "CUSTOM"
+        ],
+        [
+            72,
+            63,
+            0,
+            71,
+            3,
+            "STRING"
+        ],
+        [
+            73,
+            71,
+            0,
+            68,
+            1,
+            "STRING"
+        ],
+        [
+            74,
+            71,
+            0,
+            67,
+            0,
+            "STRING"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.7513148009015779,
+            "offset": {
+                "0": -454.85279860248704,
+                "1": -203.49558008785817
+            }
+        },
+        "workspace_info": {
+            "id": "0b99416b-a686-4e09-ae01-f25ff0ecfa38"
+        }
+    },
+    "version": 0.4
+}

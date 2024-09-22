@@ -1,0 +1,82 @@
+{
+    "11": {
+        "inputs": {
+            "text": [
+                "28",
+                0
+            ]
+        },
+        "class_type": "show_text_party",
+        "_meta": {
+            "title": "显示文本(show_text)"
+        }
+    },
+    "20": {
+        "inputs": {
+            "model_name": "gpt-4-turbo",
+            "base_url": "",
+            "api_key": ""
+        },
+        "class_type": "LLM_api_loader",
+        "_meta": {
+            "title": "API大语言模型加载器(LLM_api_loader)"
+        }
+    },
+    "21": {
+        "inputs": {
+            "persona_name": "麦洛薇",
+            "is_enable": true
+        },
+        "class_type": "load_persona",
+        "_meta": {
+            "title": "加载人格面具(load_persona)"
+        }
+    },
+    "27": {
+        "inputs": {
+            "absolute_path": "",
+            "relative_path": "麦洛薇.json",
+            "is_enable": true
+        },
+        "class_type": "KG_json_toolkit_developer",
+        "_meta": {
+            "title": "知识图谱JSON工具包开发者版(KG_json_toolkit_developer)"
+        }
+    },
+    "28": {
+        "inputs": {
+            "system_prompt": "",
+            "user_prompt": "请问你毕业于哪里呀",
+            "temperature": 0.7,
+            "is_memory": "disable",
+            "is_tools_in_sys_prompt": "disable",
+            "is_locked": "disable",
+            "main_brain": "enable",
+            "max_length": 1920,
+            "system_prompt_input": [
+                "21",
+                0
+            ],
+            "tools": [
+                "27",
+                0
+            ],
+            "imgbb_api_key": "",
+            "conversation_rounds": 100,
+            "historical_record": "",
+            "model": [
+                "20",
+                0
+            ]
+        },
+        "class_type": "LLM",
+        "_meta": {
+            "title": "API大语言模型(LLM_api)"
+        }
+    },
+    "extra": {
+        "workspace_info": {
+            "id": "731b4f06-db77-4394-a3a9-d69dda6528e0"
+        }
+    }
+}

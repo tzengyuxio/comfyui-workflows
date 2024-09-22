@@ -1,0 +1,657 @@
+{
+    "last_node_id": 22,
+    "last_link_id": 40,
+    "nodes": [
+        {
+            "id": 7,
+            "type": "tool_combine",
+            "pos": [
+                1360,
+                380
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "tool1",
+                    "type": "STRING",
+                    "link": 35,
+                    "widget": {
+                        "name": "tool1"
+                    },
+                    "label": "tool1"
+                },
+                {
+                    "name": "tool2",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "tool2"
+                    },
+                    "label": "tool2"
+                },
+                {
+                    "name": "tool3",
+                    "type": "STRING",
+                    "link": 39,
+                    "widget": {
+                        "name": "tool3"
+                    },
+                    "label": "tool3"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "links": [
+                        24
+                    ],
+                    "shape": 3,
+                    "label": "tools",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "tool_combine"
+            },
+            "widgets_values": [
+                "",
+                "",
+                "",
+                "enable"
+            ],
+            "color": "#332922",
+            "bgcolor": "#593930"
+        },
+        {
+            "id": 3,
+            "type": "time_tool",
+            "pos": [
+                476,
+                250
+            ],
+            "size": {
+                "0": 315,
+                "1": 82
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": [
+                        34
+                    ],
+                    "shape": 3,
+                    "label": "tool",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "time_tool"
+            },
+            "widgets_values": [
+                "Asia/Shanghai",
+                "enable"
+            ],
+            "color": "#323",
+            "bgcolor": "#535"
+        },
+        {
+            "id": 16,
+            "type": "LLM",
+            "pos": [
+                1730,
+                250
+            ],
+            "size": {
+                "0": 400,
+                "1": 446
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 32,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    },
+                    "label": "system_prompt_input"
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": 24,
+                    "widget": {
+                        "name": "tools"
+                    },
+                    "label": "tools"
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        29
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "你一个强大的人工智能助手。",
+                "你好，现在几点了",
+                0.7,
+                "enable",
+                "disable",
+                "disable",
+                "enable",
+                2048,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 11,
+            "type": "show_text_party",
+            "pos": [
+                2242,
+                280
+            ],
+            "size": {
+                "0": 392.27984619140625,
+                "1": 318.3831481933594
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 29,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                "",
+                "当前时间是 Asia/Shanghai 时区的 2024 年 7 月 26 日 22:12。"
+            ],
+            "color": "#233",
+            "bgcolor": "#355"
+        },
+        {
+            "id": 19,
+            "type": "LLM_api_loader",
+            "pos": [
+                482,
+                36
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        32,
+                        33,
+                        36
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_api_loader"
+            },
+            "widgets_values": [
+                "gpt-3.5-turbo-1106",
+                "",
+                ""
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 20,
+            "type": "LLM",
+            "pos": [
+                851,
+                229
+            ],
+            "size": {
+                "0": 398.6398010253906,
+                "1": 464.13494873046875
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 33,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    }
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    }
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": 34,
+                    "widget": {
+                        "name": "tools"
+                    }
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": [
+                        35
+                    ],
+                    "shape": 3,
+                    "label": "tool",
+                    "slot_index": 2
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "你可以查时间",
+                "",
+                0.7,
+                "enable",
+                "disable",
+                "disable",
+                "disable",
+                1920,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        },
+        {
+            "id": 22,
+            "type": "weekday_tool",
+            "pos": [
+                464,
+                831
+            ],
+            "size": {
+                "0": 315,
+                "1": 82
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": [
+                        40
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "weekday_tool"
+            },
+            "widgets_values": [
+                "Asia/Shanghai",
+                true
+            ],
+            "color": "#323",
+            "bgcolor": "#535"
+        },
+        {
+            "id": 21,
+            "type": "LLM",
+            "pos": [
+                854,
+                777
+            ],
+            "size": {
+                "0": 404.3064270019531,
+                "1": 454.8016052246094
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 36,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    }
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    }
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": 40,
+                    "widget": {
+                        "name": "tools"
+                    }
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": [
+                        39
+                    ],
+                    "shape": 3,
+                    "label": "tool",
+                    "slot_index": 2
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "你可以查星期",
+                "",
+                0.7,
+                "enable",
+                "disable",
+                "disable",
+                "disable",
+                1920,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        }
+    ],
+    "links": [
+        [
+            24,
+            7,
+            0,
+            16,
+            3,
+            "STRING"
+        ],
+        [
+            29,
+            16,
+            0,
+            11,
+            0,
+            "STRING"
+        ],
+        [
+            32,
+            19,
+            0,
+            16,
+            0,
+            "CUSTOM"
+        ],
+        [
+            33,
+            19,
+            0,
+            20,
+            0,
+            "CUSTOM"
+        ],
+        [
+            34,
+            3,
+            0,
+            20,
+            4,
+            "STRING"
+        ],
+        [
+            35,
+            20,
+            2,
+            7,
+            0,
+            "STRING"
+        ],
+        [
+            36,
+            19,
+            0,
+            21,
+            0,
+            "CUSTOM"
+        ],
+        [
+            39,
+            21,
+            2,
+            7,
+            2,
+            "STRING"
+        ],
+        [
+            40,
+            22,
+            0,
+            21,
+            4,
+            "STRING"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.6830134553650706,
+            "offset": {
+                "0": -331.60462635120905,
+                "1": -78.95481856767395
+            }
+        },
+        "workspace_info": {
+            "id": "9fe77ca0-87f4-4eee-9c39-c9ffdf297a89"
+        }
+    },
+    "version": 0.4
+}

@@ -1,0 +1,315 @@
+{
+    "last_node_id": 181,
+    "last_link_id": 170,
+    "nodes": [
+        {
+            "id": 177,
+            "type": "show_text_party",
+            "pos": [
+                1535,
+                416
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 170,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                ""
+            ],
+            "color": "#233",
+            "bgcolor": "#355"
+        },
+        {
+            "id": 175,
+            "type": "custom_persona",
+            "pos": [
+                657,
+                507
+            ],
+            "size": {
+                "0": 306.919921875,
+                "1": 215.1111297607422
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "system_prompt",
+                    "type": "STRING",
+                    "links": [
+                        169
+                    ],
+                    "shape": 3,
+                    "label": "system_prompt",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "custom_persona"
+            },
+            "widgets_values": [
+                "enable",
+                "帮我给一个自媒体取名字，我的自媒体主要是{text}内容，我频道的观众大部分都是{person}，想要一个可以在B站爆火的频道名",
+                "{\n\"person\":\"程序员\"\n}",
+                ""
+            ],
+            "color": "#222",
+            "bgcolor": "#000"
+        },
+        {
+            "id": 180,
+            "type": "LLM_local_loader",
+            "pos": [
+                664,
+                271
+            ],
+            "size": {
+                "0": 315,
+                "1": 174
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        167
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                },
+                {
+                    "name": "tokenizer",
+                    "type": "CUSTOM",
+                    "links": [
+                        168
+                    ],
+                    "shape": 3,
+                    "label": "tokenizer",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_local_loader"
+            },
+            "widgets_values": [
+                "GLM",
+                "D:\\AI\\mychat\\model\\chatglm3-6b\\",
+                "D:\\AI\\mychat\\model\\chatglm3-6b\\",
+                "auto",
+                "float32"
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 181,
+            "type": "LLM_local",
+            "pos": [
+                1056.7067953186036,
+                408.75369714355475
+            ],
+            "size": [
+                399.8014719292844,
+                439.1881555797877
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 167,
+                    "label": "model"
+                },
+                {
+                    "name": "tokenizer",
+                    "type": "CUSTOM",
+                    "link": 168,
+                    "label": "tokenizer"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "image"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": 169,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    }
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    }
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "tools"
+                    }
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        170
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_local"
+            },
+            "widgets_values": [
+                "",
+                "人工智能",
+                "GLM",
+                0.7,
+                512,
+                "enable",
+                "disable",
+                "enable",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        }
+    ],
+    "links": [
+        [
+            167,
+            180,
+            0,
+            181,
+            0,
+            "CUSTOM"
+        ],
+        [
+            168,
+            180,
+            1,
+            181,
+            1,
+            "CUSTOM"
+        ],
+        [
+            169,
+            175,
+            0,
+            181,
+            3,
+            "STRING"
+        ],
+        [
+            170,
+            181,
+            0,
+            177,
+            0,
+            "STRING"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.9090909090909091,
+            "offset": {
+                "0": -663.1384962961832,
+                "1": -78.5751490656719
+            }
+        },
+        "workspace_info": {
+            "id": "519ee403-b952-4b2a-8fb9-558e1f98d900"
+        }
+    },
+    "version": 0.4
+}

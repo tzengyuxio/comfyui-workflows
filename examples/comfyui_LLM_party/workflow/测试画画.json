@@ -1,0 +1,1021 @@
+{
+    "last_node_id": 210,
+    "last_link_id": 58,
+    "nodes": [
+        {
+            "id": 195,
+            "type": "CLIPTextEncode_party",
+            "pos": [
+                1932,
+                115
+            ],
+            "size": {
+                "0": 400,
+                "1": 200
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 26,
+                    "label": "clip"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 57,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        28
+                    ],
+                    "shape": 3,
+                    "label": "CONDITIONING",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode_party"
+            },
+            "widgets_values": [
+                ""
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 196,
+            "type": "CLIPTextEncode_party",
+            "pos": [
+                1938,
+                400
+            ],
+            "size": {
+                "0": 400,
+                "1": 200
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 25,
+                    "label": "clip"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 58,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        29
+                    ],
+                    "shape": 3,
+                    "label": "CONDITIONING",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode_party"
+            },
+            "widgets_values": [
+                ""
+            ],
+            "color": "#322",
+            "bgcolor": "#533"
+        },
+        {
+            "id": 174,
+            "type": "EmptyLatentImage",
+            "pos": [
+                1991,
+                695
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        30
+                    ],
+                    "shape": 3,
+                    "label": "Latent",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+                512,
+                512,
+                1
+            ],
+            "color": "#233",
+            "bgcolor": "#355"
+        },
+        {
+            "id": 198,
+            "type": "VAEDecode_party",
+            "pos": [
+                2892,
+                115
+            ],
+            "size": {
+                "0": 243.60000610351562,
+                "1": 46
+            },
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 31,
+                    "label": "samples"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 32,
+                    "label": "vae"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        33
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode_party"
+            },
+            "color": "#233",
+            "bgcolor": "#355"
+        },
+        {
+            "id": 197,
+            "type": "KSampler_party",
+            "pos": [
+                2481,
+                112
+            ],
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 27,
+                    "label": "model"
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 28,
+                    "label": "positive"
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 29,
+                    "label": "negative"
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 30,
+                    "label": "latent_image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        31
+                    ],
+                    "shape": 3,
+                    "label": "LATENT",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler_party"
+            },
+            "widgets_values": [
+                624419671310362,
+                "randomize",
+                20,
+                8,
+                "euler",
+                "normal",
+                1
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 177,
+            "type": "end_workflow",
+            "pos": [
+                3236,
+                124
+            ],
+            "size": {
+                "0": 320,
+                "1": 290
+            },
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 33,
+                    "label": "images"
+                },
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 37,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "end_workflow"
+            },
+            "widgets_values": [
+                "ComfyUI",
+                ""
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 150,
+            "type": "load_persona",
+            "pos": [
+                97,
+                -93
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "system_prompt",
+                    "type": "STRING",
+                    "links": [
+                        47
+                    ],
+                    "shape": 3,
+                    "label": "system_prompt",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "load_persona"
+            },
+            "widgets_values": [
+                "图片提示词生成器",
+                "enable",
+                ""
+            ],
+            "color": "#222",
+            "bgcolor": "#000"
+        },
+        {
+            "id": 202,
+            "type": "show_text_party",
+            "pos": [
+                1934,
+                894
+            ],
+            "size": {
+                "0": 417.2795104980469,
+                "1": 255.6949920654297
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 54,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "slot_index": 0,
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": [
+                        37
+                    ],
+                    "shape": 6,
+                    "label": "STRING",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                ""
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 176,
+            "type": "start_workflow",
+            "pos": [
+                98,
+                136
+            ],
+            "size": {
+                "0": 315,
+                "1": 346
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image_input",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "image_input"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "file_content"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                },
+                {
+                    "name": "system_prompt",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "system_prompt"
+                },
+                {
+                    "name": "user_prompt",
+                    "type": "STRING",
+                    "links": [
+                        48
+                    ],
+                    "shape": 3,
+                    "label": "user_prompt",
+                    "slot_index": 3
+                },
+                {
+                    "name": "positive_prompt",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "positive_prompt"
+                },
+                {
+                    "name": "negative_prompt",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "negative_prompt"
+                },
+                {
+                    "name": "model_name",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "model_name"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "start_workflow"
+            },
+            "widgets_values": [
+                "",
+                "",
+                "",
+                "你是一个强大的智能助手",
+                "你好",
+                "",
+                "",
+                ""
+            ],
+            "color": "#2a363b",
+            "bgcolor": "#3f5159"
+        },
+        {
+            "id": 208,
+            "type": "string_logic",
+            "pos": [
+                957,
+                203
+            ],
+            "size": {
+                "0": 315,
+                "1": 166
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "stringA",
+                    "type": "STRING",
+                    "link": 53,
+                    "widget": {
+                        "name": "stringA"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "if",
+                    "type": "STRING",
+                    "links": [
+                        55,
+                        56
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "else",
+                    "type": "STRING",
+                    "links": [
+                        54
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                },
+                {
+                    "name": "is_true",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3
+                },
+                {
+                    "name": "is_false",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "string_logic"
+            },
+            "widgets_values": [
+                "A contain B",
+                "",
+                "**Positive Prompt:**"
+            ]
+        },
+        {
+            "id": 209,
+            "type": "substring",
+            "pos": [
+                1345,
+                116
+            ],
+            "size": {
+                "0": 397.2904357910156,
+                "1": 113.91371154785156
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "input_string",
+                    "type": "STRING",
+                    "link": 55,
+                    "widget": {
+                        "name": "input_string"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "substring",
+                    "type": "STRING",
+                    "links": [
+                        57
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "substring"
+            },
+            "widgets_values": [
+                "",
+                "**Positive Prompt:**",
+                "**Negative Prompt:**"
+            ]
+        },
+        {
+            "id": 210,
+            "type": "substring",
+            "pos": [
+                1357,
+                326
+            ],
+            "size": {
+                "0": 395.7024230957031,
+                "1": 92.18375396728516
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "input_string",
+                    "type": "STRING",
+                    "link": 56,
+                    "widget": {
+                        "name": "input_string"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "substring",
+                    "type": "STRING",
+                    "links": [
+                        58
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "substring"
+            },
+            "widgets_values": [
+                "",
+                "**Negative Prompt:**",
+                ""
+            ]
+        },
+        {
+            "id": 169,
+            "type": "CheckpointLoaderSimple",
+            "pos": [
+                1417,
+                -86
+            ],
+            "size": {
+                "0": 315,
+                "1": 98
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        27
+                    ],
+                    "shape": 3,
+                    "label": "模型",
+                    "slot_index": 0
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        25,
+                        26
+                    ],
+                    "shape": 3,
+                    "label": "CLIP",
+                    "slot_index": 1
+                },
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        32
+                    ],
+                    "shape": 3,
+                    "label": "VAE",
+                    "slot_index": 2
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+                "oldFishOldschool_2307211635D.safetensors"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 205,
+            "type": "LLM_api_loader",
+            "pos": [
+                78,
+                584
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        46
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_api_loader"
+            },
+            "widgets_values": [
+                "gpt-4-turbo",
+                "",
+                ""
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 206,
+            "type": "LLM",
+            "pos": [
+                515,
+                130
+            ],
+            "size": {
+                "0": 398.5218505859375,
+                "1": 456.69598388671875
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 46,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": 47,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    }
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": 48,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    },
+                    "slot_index": 3
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "tools"
+                    }
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        53
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response"
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "",
+                "帮我生成一个美女的提示词吧",
+                0.7,
+                "disable",
+                "disable",
+                "disable",
+                "enable",
+                1920,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                ""
+            ]
+        }
+    ],
+    "links": [
+        [
+            25,
+            169,
+            1,
+            196,
+            0,
+            "CLIP"
+        ],
+        [
+            26,
+            169,
+            1,
+            195,
+            0,
+            "CLIP"
+        ],
+        [
+            27,
+            169,
+            0,
+            197,
+            0,
+            "MODEL"
+        ],
+        [
+            28,
+            195,
+            0,
+            197,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            29,
+            196,
+            0,
+            197,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            30,
+            174,
+            0,
+            197,
+            3,
+            "LATENT"
+        ],
+        [
+            31,
+            197,
+            0,
+            198,
+            0,
+            "LATENT"
+        ],
+        [
+            32,
+            169,
+            2,
+            198,
+            1,
+            "VAE"
+        ],
+        [
+            33,
+            198,
+            0,
+            177,
+            0,
+            "IMAGE"
+        ],
+        [
+            37,
+            202,
+            0,
+            177,
+            1,
+            "STRING"
+        ],
+        [
+            46,
+            205,
+            0,
+            206,
+            0,
+            "CUSTOM"
+        ],
+        [
+            47,
+            150,
+            0,
+            206,
+            2,
+            "STRING"
+        ],
+        [
+            48,
+            176,
+            3,
+            206,
+            3,
+            "STRING"
+        ],
+        [
+            53,
+            206,
+            0,
+            208,
+            0,
+            "STRING"
+        ],
+        [
+            54,
+            208,
+            1,
+            202,
+            0,
+            "STRING"
+        ],
+        [
+            55,
+            208,
+            0,
+            209,
+            0,
+            "STRING"
+        ],
+        [
+            56,
+            208,
+            0,
+            210,
+            0,
+            "STRING"
+        ],
+        [
+            57,
+            209,
+            0,
+            195,
+            1,
+            "STRING"
+        ],
+        [
+            58,
+            210,
+            0,
+            196,
+            1,
+            "STRING"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.6830134553650709,
+            "offset": {
+                "0": -15.256076346649252,
+                "1": 269.62936948248307
+            }
+        },
+        "workspace_info": {
+            "id": "45fa3d57-d28a-4ad3-9e3d-7749b857af1c"
+        }
+    },
+    "version": 0.4
+}

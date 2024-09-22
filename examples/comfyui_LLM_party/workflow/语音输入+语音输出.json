@@ -1,0 +1,492 @@
+{
+    "last_node_id": 32,
+    "last_link_id": 46,
+    "nodes": [
+        {
+            "id": 26,
+            "type": "show_text_party",
+            "pos": [
+                1350,
+                480
+            ],
+            "size": {
+                "0": 312.29107666015625,
+                "1": 185.43215942382812
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 41,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                "",
+                "你好呀！有什么我可以帮助你的吗？"
+            ]
+        },
+        {
+            "id": 27,
+            "type": "show_text_party",
+            "pos": [
+                512,
+                511
+            ],
+            "size": {
+                "0": 322.2001953125,
+                "1": 170.9775848388672
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "link": 44,
+                    "widget": {
+                        "name": "text"
+                    },
+                    "label": "text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 6,
+                    "label": "STRING"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "show_text_party"
+            },
+            "widgets_values": [
+                "",
+                "你好呀"
+            ]
+        },
+        {
+            "id": 20,
+            "type": "LLM_api_loader",
+            "pos": [
+                499,
+                161
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "links": [
+                        38
+                    ],
+                    "shape": 3,
+                    "label": "model",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM_api_loader"
+            },
+            "widgets_values": [
+                "gpt-3.5-turbo",
+                "",
+                "",
+                false
+            ]
+        },
+        {
+            "id": 28,
+            "type": "LLM",
+            "pos": [
+                889,
+                248
+            ],
+            "size": {
+                "0": 393.40087890625,
+                "1": 466
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "CUSTOM",
+                    "link": 38,
+                    "label": "model"
+                },
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": null,
+                    "label": "images"
+                },
+                {
+                    "name": "system_prompt_input",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "system_prompt_input"
+                    },
+                    "label": "system_prompt_input"
+                },
+                {
+                    "name": "user_prompt_input",
+                    "type": "STRING",
+                    "link": 43,
+                    "widget": {
+                        "name": "user_prompt_input"
+                    },
+                    "label": "user_prompt_input"
+                },
+                {
+                    "name": "tools",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "tools"
+                    },
+                    "label": "tools"
+                },
+                {
+                    "name": "file_content",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "file_content"
+                    },
+                    "label": "file_content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "assistant_response",
+                    "type": "STRING",
+                    "links": [
+                        41,
+                        45
+                    ],
+                    "shape": 3,
+                    "label": "assistant_response",
+                    "slot_index": 0
+                },
+                {
+                    "name": "history",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "history"
+                },
+                {
+                    "name": "tool",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "tool"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3,
+                    "label": "image"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LLM"
+            },
+            "widgets_values": [
+                "你一个强大的人工智能助手。",
+                "",
+                0.7,
+                "enable",
+                "disable",
+                "disable",
+                "enable",
+                1920,
+                "",
+                "",
+                "",
+                "",
+                "",
+                100,
+                "",
+                true
+            ]
+        },
+        {
+            "id": 29,
+            "type": "listen_audio",
+            "pos": [
+                115,
+                334
+            ],
+            "size": {
+                "0": 315,
+                "1": 78
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "audio_path",
+                    "type": "STRING",
+                    "links": [
+                        42
+                    ],
+                    "shape": 3,
+                    "label": "audio_path",
+                    "slot_index": 0
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "links": null,
+                    "shape": 3,
+                    "label": "audio"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "listen_audio"
+            },
+            "widgets_values": [
+                "shift"
+            ]
+        },
+        {
+            "id": 30,
+            "type": "openai_whisper",
+            "pos": [
+                512,
+                337
+            ],
+            "size": [
+                315,
+                130
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "audio_path",
+                    "type": "STRING",
+                    "link": 42,
+                    "widget": {
+                        "name": "audio_path"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "links": [
+                        43,
+                        44
+                    ],
+                    "shape": 3,
+                    "label": "text",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "openai_whisper"
+            },
+            "widgets_values": [
+                true,
+                "",
+                "https://api.openai.com/v1/",
+                "sk-XXXXX"
+            ]
+        },
+        {
+            "id": 31,
+            "type": "openai_tts",
+            "pos": [
+                1345,
+                230
+            ],
+            "size": [
+                315,
+                198
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "input_string",
+                    "type": "STRING",
+                    "link": 45,
+                    "widget": {
+                        "name": "input_string"
+                    },
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "audio_path",
+                    "type": "STRING",
+                    "links": null,
+                    "shape": 3,
+                    "label": "audio_path"
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "links": [
+                        46
+                    ],
+                    "shape": 3,
+                    "label": "audio",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "openai_tts"
+            },
+            "widgets_values": [
+                true,
+                "",
+                "tts-1",
+                "alloy",
+                "https://api.openai.com/v1/",
+                "sk-XXXXX"
+            ]
+        },
+        {
+            "id": 32,
+            "type": "PreviewAudio",
+            "pos": [
+                1756,
+                248
+            ],
+            "size": {
+                "0": 315,
+                "1": 76
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "link": 46,
+                    "label": "audio"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewAudio"
+            },
+            "widgets_values": [
+                null
+            ]
+        }
+    ],
+    "links": [
+        [
+            38,
+            20,
+            0,
+            28,
+            0,
+            "CUSTOM"
+        ],
+        [
+            41,
+            28,
+            0,
+            26,
+            0,
+            "STRING"
+        ],
+        [
+            42,
+            29,
+            0,
+            30,
+            0,
+            "STRING"
+        ],
+        [
+            43,
+            30,
+            0,
+            28,
+            3,
+            "STRING"
+        ],
+        [
+            44,
+            30,
+            0,
+            27,
+            0,
+            "STRING"
+        ],
+        [
+            45,
+            28,
+            0,
+            31,
+            0,
+            "STRING"
+        ],
+        [
+            46,
+            31,
+            1,
+            32,
+            0,
+            "AUDIO"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.8264462809917354,
+            "offset": {
+                "0": -75.51237461697824,
+                "1": 143.68492610007846
+            }
+        },
+        "workspace_info": {
+            "id": "99bd3325-754f-4ba3-8e49-6796bc0971cf"
+        }
+    },
+    "version": 0.4
+}
